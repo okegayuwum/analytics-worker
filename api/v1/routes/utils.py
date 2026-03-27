@@ -1,7 +1,8 @@
 import logging
+import time
+from abc import ABC, abstractmethod
 
 class Singleton(type):
-    """Singleton metaclass."""
     _instances = {}
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
@@ -18,8 +19,12 @@ def get_logger(name: str, level: str = 'INFO'):
     logger.addHandler(handler)
     return logger
 
-class TimeLogger:
-    """A context manager for logging execution time."""
+class LoggerMixin(ABC):
+    @abstractmethod
+    def get_logger(self):
+        pass
+
+class TimeLogger(LoggerMixin):
     def __init__(self, logger: logging.Logger, name: str = 'Execution Time'):
         self.logger = logger
         self.name = name
