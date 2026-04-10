@@ -1,0 +1,19 @@
+{
+  "service": "analytics-worker",
+  "status": "healthy",
+  "timestamp": "2024-10-27T10:00:00Z",
+  "version": "1.2.3",
+  "dependencies": {
+    "database": "healthy",
+    "message_queue": "healthy",
+    "external_api": "degraded"
+  },
+  "metrics": {
+    "cpu_usage": 0.15,
+    "memory_usage": 0.60,
+    "tasks_processed_per_minute": 120,
+    "error_rate": 0.01
+  },
+  "build_id": "abcdef123456",
+  "environment": "production"
+}
